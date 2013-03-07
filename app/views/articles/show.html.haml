@@ -1,15 +1,12 @@
 %p#notice= notice
 
-%p
-  %b Title:
-  = @article.title
-%p
-  %b Content:
-  = @article.content
+%h1{ :id => "article_title", :data => { :mercury => "simple"}}= @article.title
+  
+%div{ :id => "article_content", :data => { :mercury => "full"} }= raw @article.content
 %p
   %b Author:
   = @article.author
 
-= link_to 'Edit', edit_article_path(@article)
-\|
+= link_to 'Edit', "/editor" + request.path, :id => "edit_link", :data => { :save_url => mercury_update_article_path(@article) }
+
 = link_to 'Back', articles_path
