@@ -1,4 +1,7 @@
 Djouxblog::Application.routes.draw do
+  resources :articles
+
+
     namespace :mercury do
       resources :images
     end
