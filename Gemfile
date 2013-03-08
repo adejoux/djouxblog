@@ -29,3 +29,4 @@ gem "libv8", ">= 3.11.8"
 gem "therubyracer", ">= 0.11.3", :group => :assets, :platform => :ruby, :require => "v8"
 gem "mercury-rails", git: 'https://github.com/jejacks0n/mercury.git'
 gem 'paperclip'
+gem "paper_trail"

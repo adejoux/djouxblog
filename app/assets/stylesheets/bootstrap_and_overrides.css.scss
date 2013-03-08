@@ -1,3 +1,53 @@
+
 @import "bootstrap";
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
+.content {
+  font-size:1.2em;
+  h1 {
+    a { color: black;
+      text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F, 0 0 0.2em #87F;
+    }
+  }
+  padding: 20px;
+  padding-top: 60px;
+  margin: 0 -10px; /* negative indent the amount of the padding to maintain the grid system */
+  @include border-radius(0 0 6px 6px);
+  @include box-shadow(0 1px 2px rgba(0,0,0,0.15));
+}
+
+.navbar{
+ .navbar-inner{
+  border-bottom:solid 1px #ccc;
+  .nav{
+   margin-left:20px;
+   li{
+    a{
+     padding:5px;
+     margin:5px 5px 0 0;
+     @include border-radius(5px);
+     &:hover{
+      background:#000;
+     };
+    }
+   }
+  }
+  .brand{
+   width:169px;
+   height:26px;
+   color: white;
+   font-size: 2em;
+   text-shadow: 0.1em 0.1em 0.2em white;
+   padding:0;
+   margin:5px 0 0 0;
+  }
+ }
+}
+
+div.date {
+	background: #E6E6FF;
+	font-size: 1em;
+//	color: white;
+}
+
+

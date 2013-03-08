@@ -1,7 +1,7 @@
 %p#notice= notice
 
 %h1{ :id => "article_title", :data => { :mercury => "simple"}}= @article.title
-  
+%div{ :id => "article_summary", :data => { :mercury => "full"} }= raw @article.summary  
 %div{ :id => "article_content", :data => { :mercury => "full"} }= raw @article.content
 %p
   %b Author:

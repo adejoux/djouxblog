@@ -72,9 +72,9 @@ class ArticlesController < ApplicationController
   def mercury_update
     article = Article.find(params[:id])
     article.title = params[:content][:article_title][:value]
+    article.summary = params[:content][:article_summary][:value]
     article.content = params[:content][:article_content][:value]
     article.save!
-    # Update page
     render text: ""
   end
 
