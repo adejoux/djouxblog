@@ -68,7 +68,7 @@ class ArticlesController < ApplicationController
       end
     end
   end
-  
+
   def mercury_update
     article = Article.find(params[:id])
     article.title = params[:content][:article_title][:value]
@@ -89,4 +89,6 @@ class ArticlesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
 end

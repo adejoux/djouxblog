@@ -1,8 +1,8 @@
 %p#notice= notice
 
-%h1{ :id => "article_title", :data => { :mercury => "simple"}}= @article.title
-%div{ :id => "article_summary", :data => { :mercury => "full"} }= raw @article.summary  
-%div{ :id => "article_content", :data => { :mercury => "full"} }= raw @article.content
+%h1{ :id => "article_title"}= @article.title
+%div{ :id => "article_summary"}= raw @article.summary
+%div{ :id => "article_content"}= raw @article.rendered_body
 %p
   %b Author:
   = @article.author
