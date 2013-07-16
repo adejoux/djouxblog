@@ -31,3 +31,4 @@ gem 'paperclip'
 gem "paper_trail"
 gem 'redcarpet'
 gem 'markitup-rails'
+gem 'pygmentize'

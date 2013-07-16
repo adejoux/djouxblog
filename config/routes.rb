@@ -1,12 +1,4 @@
 Djouxblog::Application.routes.draw do
-  
-
-
-  mount Mercury::Engine => '/'
- 
-  namespace :mercury do
-    resources :images
-  end
 
   resources :articles do
     member { post :mercury_update }

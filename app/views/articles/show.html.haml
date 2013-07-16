@@ -7,6 +7,6 @@
   %b Author:
   = @article.author
 
-= link_to 'Edit', "/editor" + request.path, :id => "edit_link", :data => { :save_url => mercury_update_article_path(@article) }
+= link_to 'Edit', edit_article_path
 
 = link_to 'Back', articles_path
