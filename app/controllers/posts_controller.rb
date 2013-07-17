@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-   before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /posts
   # GET /posts.json
   def index
@@ -15,10 +15,20 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments.all
+    @comment = @post.comments.build
 
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @post }
+    end
+  end
+
+  def add_comment
+    @post = Post.find(params[:id])
+    @comment = @post.comments.build
+    respond_to do |format|
+      format.js
     end
   end
 

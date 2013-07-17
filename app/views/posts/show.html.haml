@@ -7,6 +7,16 @@
   %b Author:
   = @post.author
 
-= link_to 'Edit', edit_post_path
+#comments
+  - unless @comments.nil?
+    %h1 Comments
+    - @comments.each do |comment|
+      = render :partial => 'comments/comment', :locals => { :comment => comment }, :layout => false
 
-= link_to 'Back', posts_path
+#add_comment
+  = link_to "Add comment", add_comment_posts_path(:id => @post.id), :remote => true, :class => "btn btn-inverse"
+
+- if is_admin_user?
+  = link_to 'Edit', edit_post_path
+
+  = link_to 'Back', posts_path

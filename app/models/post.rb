@@ -3,6 +3,11 @@ class Post < ActiveRecord::Base
   has_paper_trail :on => [:update, :destroy]
   before_save :render_body
 
+  validates_presence_of :author, :content, :title
+  validates_uniqueness_of :title
+
+  has_many :comments, :dependent => :destroy
+
   private
   def render_body
     renderer = PygmentizeHTML

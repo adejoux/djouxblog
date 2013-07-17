@@ -1,9 +1,12 @@
 Djouxblog::Application.routes.draw do
 
+  resources :posts do
+    collection do
+      get :add_comment, to:'posts#add_comment'
+    end
+  end
+
   resources :comments
-
-
-  resources :posts
 
   authenticated :user do
     root :to => 'posts#index'

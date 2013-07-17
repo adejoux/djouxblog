@@ -12,4 +12,11 @@ module ApplicationHelper
     html.html_safe
   end
 
+  def is_admin_user?
+    if current_user and current_user.has_role? "admin"
+      true
+    else
+      false
+    end
+  end
 end
