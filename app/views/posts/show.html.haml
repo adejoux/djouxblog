@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%h1{ :id => "post_title"}= @post.title
+%div{ :id => "post_summary"}= raw @post.summary
+%div{ :id => "post_content"}= raw @post.rendered_body
+%p
+  %b Author:
+  = @post.author
+
+= link_to 'Edit', edit_post_path
+
+= link_to 'Back', posts_path

@@ -1,8 +1,6 @@
 Djouxblog::Application.routes.draw do
 
-  resources :articles do
-    member { post :mercury_update }
-  end
+  resources :posts
 
   authenticated :user do
     root :to => 'home#index'

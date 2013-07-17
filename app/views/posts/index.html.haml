@@ -1,0 +1,8 @@
+- @posts.each do |post|
+  %h1= link_to post.title, post
+  .date= "Author: #{post.author}"
+  %br
+  %p= raw post.summary
+
+
+= link_to 'New Post', new_post_path
