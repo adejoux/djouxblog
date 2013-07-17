@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+   before_filter :authenticate_user!
   # GET /posts
   # GET /posts.json
   def index
@@ -57,6 +58,7 @@ class PostsController < ApplicationController
   # PUT /posts/1.json
   def update
     @post = Post.find(params[:id])
+    @post.author=current_user.name
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
@@ -67,15 +69,6 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def mercury_update
-    post = Post.find(params[:id])
-    post.title = params[:content][:post_title][:value]
-    post.summary = params[:content][:post_summary][:value]
-    post.content = params[:content][:post_content][:value]
-    post.save!
-    render text: ""
   end
 
   # DELETE /posts/1
