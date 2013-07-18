@@ -2,7 +2,9 @@
   %hr
   - if is_admin_user?
     = link_to "×", comment_path(comment), :method => :delete, :remote => true, :confirm => "Are you sure you want to remove this comment?", :disable_with => "×", :class => 'close'
-  %h4
+  %dt.comment-author
     = comment.name
-    %small= comment.updated_at
-  %p= comment.body
+  %dd.comment-body
+    %p= comment.body
+  %dd.comment-footer
+    =comment.updated_at.to_formatted_s(:long)

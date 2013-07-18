@@ -9,7 +9,7 @@
 
 #comments
   - unless @comments.nil?
-    %h1 Comments
+    %h4 Comments
     - @comments.each do |comment|
       = render :partial => 'comments/comment', :locals => { :comment => comment }, :layout => false
 

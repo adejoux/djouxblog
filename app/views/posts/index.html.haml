@@ -3,6 +3,7 @@
   .date= "Author: #{post.author}"
   %br
   %p= raw post.summary
+  %br
 
-
-= link_to 'New Post', new_post_path
+- if is_admin_user?
+  = link_to 'New Post', new_post_path

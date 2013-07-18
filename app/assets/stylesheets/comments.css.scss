@@ -1,3 +1,67 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#comments{
+  margin-top:40px;
+}
+
+#comments h4,
+.comment-form h4{
+  color:#87F;
+  font-size:1.3em;
+  font-weight:normal;
+  margin:0;
+  padding:5px 0;
+  border-bottom:3px double #ccc;
+}
+
+#comments dl{
+  margin:10px 0;
+}
+
+#comments dt{
+  float:left;
+  -moz-box-shadow: 2px 2px 2px #87F;
+  -webkit-box-shadow: 2px 2px 2px #87F;
+  box-shadow: 2px 2px 2px #87F;
+  border:1px solid #87F;
+  padding: 5px;
+  text-align:center;
+  width:75px;
+  margin:0 20px 0 0;
+  background-color:#87F;
+  color:#fff;
+}
+
+#comments dt a{
+  color:#fff;
+}
+
+#comments dt a:hover{
+  text-decoration:underline;
+}
+
+.comment-body{
+  padding:0;
+  margin:0;
+  font-style:italic;
+  float:left;
+  width:500px;
+}
+
+.comment-footer{
+  clear:both;
+  font-size:.8em;
+  color:#000;
+  border-bottom:1px dashed #ccc;
+  margin:0 0 15px 0;
+  padding: 0 0 5px 0;
+  text-transform:uppercase;
+  font-style:normal;
+  text-decoration:none;
+  text-align: right;
+}
+
+.comment-footer a{
+  color:#000
+}
