@@ -1,5 +1,7 @@
 Djouxblog::Application.routes.draw do
 
+  resources :images
+
   resources :posts do
     collection do
       get :add_comment, to:'posts#add_comment'

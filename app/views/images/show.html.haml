@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @image.name
+%p
+  %b Image:
+  =image_tag @image.file_url.to_s
+
+= link_to 'Edit', edit_image_path(@image)
+\|
+= link_to 'Back', images_path
