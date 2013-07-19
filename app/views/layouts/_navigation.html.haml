@@ -7,5 +7,7 @@
       = link_to 'Edit account', edit_user_registration_path
     - if current_user.has_role? :admin
       %li
-        = link_to 'Admin', users_path
+%nav.pull-right
+  = form_tag posts_path, :method => :get, :class => "form-search" do
+    = text_field_tag :query, params[:query], :placeholder => 'Enter search term...',:class => "search-query"
 

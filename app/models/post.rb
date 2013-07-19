@@ -8,6 +8,10 @@ class Post < ActiveRecord::Base
 
   has_many :comments, :dependent => :destroy
 
+  def to_param
+    "#{id}-#{title}".parameterize
+  end
+
   private
   def render_body
     renderer = PygmentizeHTML
