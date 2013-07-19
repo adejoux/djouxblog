@@ -1,6 +1,6 @@
 %p#notice= notice
 
-%h1{ :id => "post_title"}= @post.title
+%h1= @post.title
 %div{ :id => "post_summary"}= raw @post.summary
 %div{ :id => "post_content"}= raw @post.rendered_body
 %p

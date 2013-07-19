@@ -1,7 +1,6 @@
 - @posts.each do |post|
-  .box
-    %h1= link_to post.title, post
-  .date= "Author: #{post.author}"
+  %h1= link_to post.title, post
+  .date= post.created_at.to_formatted_s(:long)
   %br
   %p= raw post.summary
   %br

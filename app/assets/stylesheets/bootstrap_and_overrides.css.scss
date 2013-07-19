@@ -2,11 +2,24 @@
 @import "bootstrap";
 body { padding-top: 60px; }
 @import "bootstrap-responsive";
+
+@mixin title {
+  font-family: times, Times New Roman, times-roman, georgia, serif;
+  font-size: 48px;
+  line-height: 40px;
+  letter-spacing: -1px;
+  color: #444;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  font-weight: 100;
+}
+
 .content {
   font-size:1.2em;
   h1 {
-    a { color: black;
-      text-shadow: 0 0 0.2em #87F;
+    @include title;
+    a {
+      @include title;
     }
   }
   padding: 20px;
@@ -45,10 +58,24 @@ body { padding-top: 60px; }
 }
 
 div.date {
-	background: #E6E6FF;
-	font-size: 1em;
-//	color: white;
+  font-size: 85%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #bbb;
+  font-size: 10px;
+  font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
+  font-weight: 100;
 }
+
+div.author {
+  color: #76879b;
+  font-size: 10px;
+  margin: 5px;
+  font-family: "Lucida Grande", Verdana, Helvetica, Arial, sans-serif;
+  font-size: 11px;
+}
+
+
 
 
 

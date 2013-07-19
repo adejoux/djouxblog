@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  attr_accessible :author, :content, :title
+  attr_accessible :author, :content, :title, :summary
   has_paper_trail :on => [:update, :destroy]
   before_save :render_body
 
