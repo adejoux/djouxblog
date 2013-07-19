@@ -8,6 +8,19 @@ class Post < ActiveRecord::Base
 
   has_many :comments, :dependent => :destroy
 
+  # adding postgresql full text search
+  include PgSearch
+  pg_search_scope :search, against: [:title, :content],
+    using: {tsearch: {dictionary: "english"}}
+
+  def self.text_search(query)
+    if query.present?
+      search(query)
+    else
+      scoped
+    end
+  end
+
   def to_param
     "#{id}-#{title}".parameterize
   end

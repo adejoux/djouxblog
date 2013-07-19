@@ -32,3 +32,4 @@ gem "paper_trail"
 gem 'redcarpet'
 gem 'markitup-rails'
 gem 'pygments.rb'
+gem 'pg_search'

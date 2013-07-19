@@ -129,6 +129,10 @@ GEM
       cocaine (~> 0.5.0)
       mime-types
     pg (0.14.1)
+    pg_search (0.7.0)
+      activerecord (>= 3.1)
+      activesupport (>= 3.1)
+      arel
     polyglot (0.3.3)
     posix-spawn (0.3.6)
     pygments.rb (0.5.1)
@@ -248,6 +252,7 @@ DEPENDENCIES
   paper_trail
   paperclip
   pg (>= 0.14.1)
+  pg_search
   pygments.rb
   quiet_assets (>= 1.0.1)
   rails (= 3.2.12)
