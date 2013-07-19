@@ -21,8 +21,10 @@
               = render 'layouts/messages'
               = yield
           .span3.bs-docs-sidebar
-            .content
+            .content.affix
               = render 'layouts/sidebar'
-          %footer
+    #footer
+      .container
+        &copy; 2013 - Alain Dejoux
       / ! end of .container
     / ! end of #main

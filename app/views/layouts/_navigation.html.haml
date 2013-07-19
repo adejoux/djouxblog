@@ -5,9 +5,7 @@
       = link_to 'Logout', destroy_user_session_path, :method=>'delete'
     %li
       = link_to 'Edit account', edit_user_registration_path
-    - if current_user.has_role? :admin
-      %li
 %nav.pull-right
-  = form_tag posts_path, :method => :get, :class => "form-search" do
+  = form_tag posts_path, :method => :get, :class => "navbar-form pull-right" do
     = text_field_tag :query, params[:query], :placeholder => 'Enter search term...',:class => "search-query"
 

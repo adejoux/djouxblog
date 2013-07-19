@@ -1,10 +1,10 @@
 - @posts.each do |post|
   %h1= link_to post.title, post
-  .date= post.created_at.to_formatted_s(:long)
+  .date= post.created_at.to_formatted_s(:long) + "|" + (post.author || "")
   %br
   %p= raw post.summary
+  .author= link_to 'Read more...', post
   %br
-
 = paginate @posts
 
 - if is_admin_user?

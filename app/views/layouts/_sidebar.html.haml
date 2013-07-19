@@ -1,3 +1,4 @@
-
-
-%h1 Last posts
+%h1 Recent posts
+%ul
+  - @post_list.each do |post|
+    %li=link_to post.title, post_path(post.id)

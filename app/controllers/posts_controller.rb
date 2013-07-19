@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.text_search(params[:query]).page(params[:page]).per(5)
+    @posts = Post.text_search(params[:query]).page(params[:page]).per(5).order("created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb

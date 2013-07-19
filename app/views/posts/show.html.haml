@@ -1,11 +1,10 @@
 %p#notice= notice
 
-%h1= @post.title
+%h1{ :id => "post_title"}= @post.title
+.date= @post.created_at.to_formatted_s(:long) + "|" + (@post.author || "")
 %div{ :id => "post_summary"}= raw @post.summary
 %div{ :id => "post_content"}= raw @post.rendered_body
-%p
-  %b Author:
-  = @post.author
+
 
 #comments
   - unless @comments.nil?
