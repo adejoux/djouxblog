@@ -5,5 +5,7 @@
   %p= raw post.summary
   %br
 
+= paginate @posts
+
 - if is_admin_user?
   = link_to 'New Post', new_post_path
