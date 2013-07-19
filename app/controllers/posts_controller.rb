@@ -5,6 +5,10 @@ class PostsController < ApplicationController
   def index
     @posts = Post.text_search(params[:query]).page(params[:page]).per(5).order("created_at DESC")
 
+    if params[:tag]
+      @posts = @posts.tagged_with(params[:tag])
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @posts }

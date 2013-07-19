@@ -1,7 +1,9 @@
 class Post < ActiveRecord::Base
-  attr_accessible :author, :content, :title, :summary
+  attr_accessible :author, :content, :title, :summary, :tag_list
   has_paper_trail :on => [:update, :destroy]
   before_save :render_body
+
+  acts_as_taggable
 
   validates_presence_of :author, :content, :title
   validates_uniqueness_of :title
