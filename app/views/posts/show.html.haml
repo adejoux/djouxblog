@@ -1,25 +1,9 @@
-%h1{ :id => "post_title"}= @post.title
-.date
-  = @post.created_at.to_formatted_s(:long)
-  |
-  = @post.author || ""
-  |
-  = raw @post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+= render :partial => 'posts/content', :locals => { :post => @post }
 
-%div{ :id => "post_summary"}= raw @post.summary
-%div{ :id => "post_content"}= raw @post.rendered_body
+= render :partial => 'posts/comments', :locals => { :comments => @comments }
 
-
-#comments
-  - unless @comments.nil?
-    %h4 Comments
-    - @comments.each do |comment|
-      = render :partial => 'comments/comment', :locals => { :comment => comment }, :layout => false
-
-#add_comment
-  = link_to "Add comment", add_comment_posts_path(:id => @post.id), :remote => true, :class => "btn btn-inverse"
+= render :partial => 'posts/add_comment', :locals => { :post => @post }
 
 - if is_admin_user?
   = link_to 'Edit', edit_post_path
-
   = link_to 'Back', posts_path

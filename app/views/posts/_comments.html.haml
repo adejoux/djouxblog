@@ -1,0 +1,5 @@
+#comments
+  - unless @comments.nil?
+    %h4 Comments
+    - @comments.each do |comment|
+      = render :partial => 'comments/comment', :locals => { :comment => comment }, :layout => false

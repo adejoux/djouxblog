@@ -1,11 +1,7 @@
 - @posts.each do |post|
   %h1= link_to post.title, post
-  .date
-    = post.created_at.to_formatted_s(:long)
-    |
-    = post.author || ""
-    |
-    = raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+  = render :partial => 'subtitle', :locals => { :post => post }
+
   %br
   %p= raw post.summary
   .author= link_to 'Read more...', post

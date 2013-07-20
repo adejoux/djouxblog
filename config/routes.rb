@@ -1,5 +1,11 @@
 Djouxblog::Application.routes.draw do
 
+  get '/versions/:id/edit', to: 'versions#edit', as: 'edit_version'
+
+  get '/versions/:id', to: 'versions#show', as: 'version'
+
+  post "versions/:id/revert" => "versions#revert", :as => "revert_version"
+
   get 'tags/:tag', to: 'posts#index', as: :tag
   resources :images
 
