@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
-  attr_accessible :author, :content, :title, :summary, :tag_list
-  has_paper_trail :on => [:update, :destroy]
+  attr_accessible :author, :content, :title, :summary, :tag_list, :published
+  has_paper_trail :on => [:update, :destroy], :skip => [:published]
   before_save :render_body
 
   acts_as_taggable
@@ -9,6 +9,8 @@ class Post < ActiveRecord::Base
   validates_uniqueness_of :title
 
   has_many :comments, :dependent => :destroy
+
+  scope :published, where(:published => true)
 
   # adding postgresql full text search
   include PgSearch

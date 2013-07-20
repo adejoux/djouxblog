@@ -5,6 +5,10 @@ class PostsController < ApplicationController
   def index
     @posts = Post.text_search(params[:query]).page(params[:page]).per(5).order("created_at DESC")
 
+    unless current_user and current_user.has_role? "admin"
+      @posts=@posts.published
+    end
+
     if params[:tag]
       @posts = @posts.tagged_with(params[:tag])
     end
