@@ -1,0 +1,5 @@
+%h1{ :id => "page_title"}= page.title
+= render :partial => 'pages/subtitle', :locals => { :page => page }
+
+%div{ :id => "page_summary"}= raw page.summary
+%div{ :id => "page_content"}= raw page.rendered_body

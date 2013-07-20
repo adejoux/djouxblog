@@ -4,6 +4,6 @@
   .comment-form
     = f.input :name
     = f.input :email
-    = f.input :post_id, :as => :hidden, :value => @comment.post_id
+    = f.input :page_id, :as => :hidden, :value => @comment.page_id
     = f.input :body, :input_html => { :rows => "2" }, :label => false
     = f.button :submit, :class => "btn btn-primary", :disable_with => "Submitting…"

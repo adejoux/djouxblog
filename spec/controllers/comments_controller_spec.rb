@@ -24,7 +24,7 @@ describe CommentsController do
   # Comment. As you add validations to Comment, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "post_id" => "1" }
+    { "page_id" => "1" }
   end
 
   # This should return the minimal set of values that should be in the session
@@ -69,18 +69,18 @@ describe CommentsController do
     describe "with valid params" do
       it "creates a new Comment" do
         expect {
-          post :create, {:comment => valid_attributes}, valid_session
+          page :create, {:comment => valid_attributes}, valid_session
         }.to change(Comment, :count).by(1)
       end
 
       it "assigns a newly created comment as @comment" do
-        post :create, {:comment => valid_attributes}, valid_session
+        page :create, {:comment => valid_attributes}, valid_session
         assigns(:comment).should be_a(Comment)
         assigns(:comment).should be_persisted
       end
 
       it "redirects to the created comment" do
-        post :create, {:comment => valid_attributes}, valid_session
+        page :create, {:comment => valid_attributes}, valid_session
         response.should redirect_to(Comment.last)
       end
     end
@@ -89,14 +89,14 @@ describe CommentsController do
       it "assigns a newly created but unsaved comment as @comment" do
         # Trigger the behavior that occurs when invalid params are submitted
         Comment.any_instance.stub(:save).and_return(false)
-        post :create, {:comment => { "post_id" => "invalid value" }}, valid_session
+        page :create, {:comment => { "page_id" => "invalid value" }}, valid_session
         assigns(:comment).should be_a_new(Comment)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Comment.any_instance.stub(:save).and_return(false)
-        post :create, {:comment => { "post_id" => "invalid value" }}, valid_session
+        page :create, {:comment => { "page_id" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -110,8 +110,8 @@ describe CommentsController do
         # specifies that the Comment created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Comment.any_instance.should_receive(:update_attributes).with({ "post_id" => "1" })
-        put :update, {:id => comment.to_param, :comment => { "post_id" => "1" }}, valid_session
+        Comment.any_instance.should_receive(:update_attributes).with({ "page_id" => "1" })
+        put :update, {:id => comment.to_param, :comment => { "page_id" => "1" }}, valid_session
       end
 
       it "assigns the requested comment as @comment" do
@@ -132,7 +132,7 @@ describe CommentsController do
         comment = Comment.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Comment.any_instance.stub(:save).and_return(false)
-        put :update, {:id => comment.to_param, :comment => { "post_id" => "invalid value" }}, valid_session
+        put :update, {:id => comment.to_param, :comment => { "page_id" => "invalid value" }}, valid_session
         assigns(:comment).should eq(comment)
       end
 
@@ -140,7 +140,7 @@ describe CommentsController do
         comment = Comment.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Comment.any_instance.stub(:save).and_return(false)
-        put :update, {:id => comment.to_param, :comment => { "post_id" => "invalid value" }}, valid_session
+        put :update, {:id => comment.to_param, :comment => { "page_id" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end

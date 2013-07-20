@@ -8,9 +8,9 @@ class Ability
     if user.has_role? "admin"
       can :manage, :all
     else
-      can :read, Post
-      can :show, Post
-      can :add_comment, Post
+      can :read, Page
+      can :show, Page
+      can :add_comment, Page
       can :create, Comment
     end
     #

@@ -1,4 +1,4 @@
 %ul
-  - @post.versions.each do |version|
+  - @page.versions.each do |version|
     %li
       = link_to "#{version.created_at.to_formatted_s(:long)}", version_path(version)

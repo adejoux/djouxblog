@@ -1,5 +1,5 @@
-= render :partial => 'posts/content', :locals => { :post => @post }
+= render :partial => 'pages/content', :locals => { :page => @page }
 
-= link_to 'Revert', revert_version_path(@version), { :method => :post, :class => "btn" }
+= link_to 'Revert', revert_version_path(@version), { :method => :page, :class => "btn" }
 
 = link_to 'Edit', edit_version_path(@version), { :class => "btn" }

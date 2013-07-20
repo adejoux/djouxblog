@@ -6,6 +6,6 @@
     %li
       = link_to 'Edit account', edit_user_registration_path
 %nav.pull-right
-  = form_tag posts_path, :method => :get, :class => "navbar-form pull-right" do
+  = form_tag pages_path, :method => :get, :class => "navbar-form pull-right" do
     = text_field_tag :query, params[:query], :placeholder => 'Enter search term...',:class => "search-query"
 

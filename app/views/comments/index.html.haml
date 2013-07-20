@@ -2,7 +2,7 @@
 
 %table
   %tr
-    %th Post
+    %th Page
     %th Name
     %th Email
     %th Body
@@ -12,7 +12,7 @@
 
   - @comments.each do |comment|
     %tr
-      %td= comment.post_id
+      %td= comment.page_id
       %td= comment.name
       %td= comment.email
       %td= comment.body

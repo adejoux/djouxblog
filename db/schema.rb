@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130720120624) do
+ActiveRecord::Schema.define(:version => 20130720135438) do
 
   create_table "comments", :force => true do |t|
-    t.integer  "post_id"
+    t.integer  "page_id"
     t.string   "name"
     t.string   "email"
     t.text     "body"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(:version => 20130720120624) do
     t.datetime "updated_at",         :null => false
   end
 
-  create_table "posts", :force => true do |t|
+  create_table "pages", :force => true do |t|
     t.string   "title"
     t.text     "content"
     t.string   "author"
@@ -47,7 +47,11 @@ ActiveRecord::Schema.define(:version => 20130720120624) do
     t.text     "summary"
     t.text     "rendered_body"
     t.boolean  "published",     :default => false
+    t.string   "ancestry"
+    t.string   "category"
   end
+
+  add_index "pages", ["ancestry"], :name => "index_posts_on_ancestry"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

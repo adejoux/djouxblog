@@ -1,9 +1,0 @@
-= render :partial => 'posts/content', :locals => { :post => @post }
-
-= render :partial => 'posts/comments', :locals => { :comments => @comments }
-
-= render :partial => 'posts/add_comment', :locals => { :post => @post }
-
-- if is_admin_user?
-  = link_to 'Edit', edit_post_path
-  = link_to 'Back', posts_path

@@ -1,5 +1,5 @@
-class Post < ActiveRecord::Base
-  attr_accessible :author, :content, :title, :summary, :tag_list, :published
+class Page < ActiveRecord::Base
+  attr_accessible :author, :content, :title, :summary, :tag_list, :published, :category
   has_paper_trail :on => [:update, :destroy], :skip => [:published]
   before_save :render_body
 
@@ -11,6 +11,10 @@ class Post < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
 
   scope :published, where(:published => true)
+
+  scope :wiki, where(:category => "wiki")
+  scope :posts, where(:category => "posts")
+  scope :info, where(:category => "info")
 
   # adding postgresql full text search
   include PgSearch

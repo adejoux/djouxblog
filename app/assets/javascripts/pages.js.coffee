@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
   # Target all text areas
-  $("textarea#post_content").markItUp mySettings
+  $("textarea#page_content").markItUp mySettings
   # Delete a comment
   $(document)
     .on "ajax:beforeSend", ".comment", ->

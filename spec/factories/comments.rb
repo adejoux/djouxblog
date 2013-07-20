@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :comment do
-    post_id 1
+    page_id 1
     name "MyString"
     email "MyString"
     body "MyText"

@@ -1,8 +1,9 @@
-= simple_form_for(@post) do |f|
+= simple_form_for(@page) do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :title
+    = f.input :category, collection: ['posts', 'wiki', 'info']
     = f.input :tag_list
     = f.input :summary
     = f.input :content
