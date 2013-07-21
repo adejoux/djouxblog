@@ -1,0 +1,12 @@
+- @pages.each do |page|
+  %h1= link_to page.title, page
+  = render :partial => 'pages/subtitle', :locals => { :page => page }
+
+  %br
+  %p= raw page.summary
+  .author= link_to 'Read more...', post_path(page)
+  %br
+= paginate @pages
+
+- if is_admin_user?
+  = link_to 'New Page', new_page_path

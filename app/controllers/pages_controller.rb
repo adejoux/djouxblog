@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   def index
     @pages = Page.text_search(params[:query]).page(params[:page]).per(5).order("created_at DESC")
 
-    unless current_user and current_user.has_role? "admin"
+    if not_admin?
       @pages=@pages.published
     end
 
@@ -20,6 +20,8 @@ class PagesController < ApplicationController
         when "info" then @pages = @pages.info
         else @pages =@pages.posts
       end
+    elsif not_admin?
+      @pages =@pages.posts
     end
 
     respond_to do |format|

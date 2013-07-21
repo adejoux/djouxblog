@@ -1,11 +1,11 @@
 class Page < ActiveRecord::Base
   attr_accessible :author, :content, :title, :summary, :tag_list, :published, :category
-  has_paper_trail :on => [:update, :destroy], :skip => [:published]
+  has_paper_trail :on => [:update, :destroy], :skip => [:published, :tag_list]
   before_save :render_body
 
   acts_as_taggable
 
-  validates_presence_of :author, :content, :title
+  validates_presence_of :author, :content, :title, :category
   validates_uniqueness_of :title
 
   has_many :comments, :dependent => :destroy
@@ -14,7 +14,6 @@ class Page < ActiveRecord::Base
 
   scope :wiki, where(:category => "wiki")
   scope :posts, where(:category => "posts")
-  scope :info, where(:category => "info")
 
   # adding postgresql full text search
   include PgSearch
@@ -35,7 +34,7 @@ class Page < ActiveRecord::Base
 
   private
   def render_body
-    renderer = PygmentizeHTML
+    renderer = CustomRedcarpet
     options = {
       nowrap: true,
       autolink: true,
@@ -50,55 +49,4 @@ class Page < ActiveRecord::Base
   end
 end
 
-class PygmentizeHTML < Redcarpet::Render::HTML
 
-  include Sprockets::Helpers::RailsHelper
-  include Sprockets::Helpers::IsolatedHelper
-  include ActionView::Helpers::UrlHelper
-
-  def block_code(code, language)
-    Pygments.highlight(code, lexer: language)
-  end
-
-  #code below from http://yet.another.linux-nerd.com/blog/how-to-extend-redcarpet-to-support-a-media-library-part-2
-  def parse_media_link(link)
-    puts link
-    matches = link.match(/^([\w\d\.]+)(?:\|(\w+))?(?:\|([\w\s\d]+))?$/)
-    {
-        :id => matches[1],
-        :size => (matches[2] || 'standard').to_sym,
-        :class => matches[3]
-
-    } if matches
-  end
-
-  def image(link, title, alt_text)
-    size = nil
-    klass = nil
-
-    if nil != (parse = parse_media_link(link))
-      media = Image.find_by_id(parse[:id]) || Image.find_by_name(parse[:id])
-      if media
-        #size = media.file_size(parse[:size])
-        link = media.file_url(parse[:size]).to_s
-        klass = parse[:class]
-      end
-    end
-
-    image_tag(link, :title => title, :alt => alt_text, :class => klass)
-  end
-
-  def link(link, title, content)
-    klass = nil
-
-    if nil != (parse = parse_media_link(link))
-      media = Image.find_by_id(parse[:id]) || Image.find_by_name(parse[:id])
-      if media
-        link = media.file_url.to_s
-        klass = parse[:class]
-      end
-    end
-
-    link_to(content, link, :title => title, :class => klass)
-  end
-end

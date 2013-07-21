@@ -1,5 +1,9 @@
 = link_to "Djouxblog", root_path, :class => 'brand'
 %ul.nav
+  %li{:class => "#{'active' if params[:controller] == 'posts'}"}=link_to "Posts", posts_path
+  %li{:class => "#{'active' if params[:controller] == 'wiki'}"}=link_to "Wiki", wikis_path
+  - if info_path("about")
+    %li{:class => "#{'active' if current_page?(info_path("about"))}"}=link_to "About", info_path("about")
   - if user_signed_in?
     %li
       = link_to 'Logout', destroy_user_session_path, :method=>'delete'
