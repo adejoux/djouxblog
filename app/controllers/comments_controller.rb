@@ -45,7 +45,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to page_path(@comment.page_id, :format => 'html'), :notice =>"Your comment was added. Thank You." }
+        format.html { redirect_to page_path(@comment.page, :format => 'html'), :notice =>"Your comment was added. Thank You." }
       else
         format.html { render :js => "alert('error saving comment');" }
       end

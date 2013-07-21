@@ -7,7 +7,7 @@
     = f.collection_select :parent_id, Page.order(:title), :id, :title, include_blank: true
     = f.input :category, collection: ['posts', 'wiki']
     = f.input :tag_list
-    = f.input :summary
+    = f.input :summary, input_html: { rows: 5 }
     = f.input :content
     = f.input :published
 

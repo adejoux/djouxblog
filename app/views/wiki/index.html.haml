@@ -1,2 +1,4 @@
-%h1 Wiki#index
-%p Find me in app/views/wiki/index.html.haml
+%h1 You need to build a wiki page "main"
+
+- if is_admin_user?
+  = link_to 'New Page', new_page_path

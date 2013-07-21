@@ -12,7 +12,6 @@ class Ability
       can :show, Page
       can :add_comment, Page
       can :create, Comment
-      can :show, Info
     end
     #
     # The first argument to `can` is the action you are giving the user

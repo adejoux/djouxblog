@@ -1,6 +1,6 @@
 .date
   = page.created_at.to_formatted_s(:long)
   |
-  = page.author || ""
+  = page.user.name || ""
   |
   = raw page.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')

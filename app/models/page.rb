@@ -1,12 +1,13 @@
 class Page < ActiveRecord::Base
-  attr_accessible :author, :content, :title, :summary, :tag_list, :published, :category, :parent_id
+  attr_accessible :user_id, :content, :title, :summary, :tag_list, :published, :category, :parent_id
   has_paper_trail :on => [:update, :destroy], :skip => [:published, :tag_list]
   before_save :render_body
+  belongs_to :user
 
   acts_as_taggable
   has_ancestry
 
-  validates_presence_of :author, :content, :title, :category
+  validates_presence_of :user_id, :content, :title, :category
   validates_uniqueness_of :title, :permalink
 
   has_many :comments, :dependent => :destroy
@@ -15,6 +16,7 @@ class Page < ActiveRecord::Base
 
   scope :wiki, where(:category => "wiki")
   scope :posts, where(:category => "posts")
+  scope :infos, where(:category => "infos")
 
   # adding postgresql full text search
   include PgSearch

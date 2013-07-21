@@ -13,7 +13,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @page =Page.posts.find(params[:id])
+    @page =Page.posts.find_by_permalink!(params[:id])
 
     @comments = @page.comments.all
     @comment = @page.comments.build

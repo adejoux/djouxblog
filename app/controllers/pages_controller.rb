@@ -1,13 +1,14 @@
 class PagesController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource :find_by => :permalink
   # GET /pages
   # GET /pages.json
   def index
-    @pages = Page.text_search(params[:query]).page(params[:page]).per(5).order("created_at DESC")
-
     if not_admin?
-      @pages=@pages.published
+      redirect_to root_path
+      return
     end
+
+    @pages = Page.text_search(params[:query]).page(params[:page]).per(5).order("created_at DESC")
 
     if params[:tag]
       @pages = @pages.tagged_with(params[:tag])
@@ -22,6 +23,10 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
+    if not_admin?
+      redirect_to root_path
+      return
+    end
     @page = Page.find_by_permalink!(params[:id])
     @comments = @page.comments.all
     @comment = @page.comments.build
@@ -60,7 +65,8 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
     @page = Page.new(params[:page])
-    @page.author=current_user.name
+    @page.user_id=current_user.id
+    @page.permalink=@page.title.parameterize
 
     respond_to do |format|
       if @page.save

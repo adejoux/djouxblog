@@ -1,13 +1,15 @@
 #breadcrumbs
   - @wiki.ancestors.each do |wiki|
-    = link_to wiki.title, wiki_path(wiki) + "&gt;"
+    = link_to wiki.title, wiki_path(wiki)
+    &gt;
 
-= render :partial => 'pages/content', :locals => { :page => @page }
+= render :partial => 'pages/content', :locals => { :page => @wiki }
 
 = render :partial => 'pages/comments', :locals => { :comments => @comments }
 
-= render :partial => 'pages/add_comment', :locals => { :page => @page }
+= render :partial => 'pages/add_comment', :locals => { :page => @wiki }
 
 - if is_admin_user?
   = link_to 'Edit', edit_page_path
   = link_to 'Back', posts_path
+  = link_to 'New Page', new_page_path
