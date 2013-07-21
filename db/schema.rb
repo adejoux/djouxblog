@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130721134234) do
+ActiveRecord::Schema.define(:version => 20130721144029) do
 
   create_table "comments", :force => true do |t|
     t.integer  "page_id"
@@ -29,30 +29,9 @@ ActiveRecord::Schema.define(:version => 20130721134234) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "infos", :force => true do |t|
-    t.string   "name"
-    t.string   "permalink"
-    t.text     "content"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.text     "rendered_body"
-  end
-
-  add_index "infos", ["permalink"], :name => "index_infos_on_permalink"
-
-  create_table "mercury_images", :force => true do |t|
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-  end
-
   create_table "pages", :force => true do |t|
     t.string   "title"
     t.text     "content"
-    t.string   "author"
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
     t.text     "summary"
@@ -60,9 +39,12 @@ ActiveRecord::Schema.define(:version => 20130721134234) do
     t.boolean  "published",     :default => false
     t.string   "ancestry"
     t.string   "category"
+    t.string   "permalink"
+    t.integer  "user_id"
   end
 
   add_index "pages", ["ancestry"], :name => "index_posts_on_ancestry"
+  add_index "pages", ["permalink"], :name => "index_pages_on_permalink"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

@@ -1,12 +1,13 @@
 class Page < ActiveRecord::Base
-  attr_accessible :author, :content, :title, :summary, :tag_list, :published, :category
+  attr_accessible :author, :content, :title, :summary, :tag_list, :published, :category, :parent_id
   has_paper_trail :on => [:update, :destroy], :skip => [:published, :tag_list]
   before_save :render_body
 
   acts_as_taggable
+  has_ancestry
 
   validates_presence_of :author, :content, :title, :category
-  validates_uniqueness_of :title
+  validates_uniqueness_of :title, :permalink
 
   has_many :comments, :dependent => :destroy
 
@@ -29,7 +30,7 @@ class Page < ActiveRecord::Base
   end
 
   def to_param
-    "#{id}-#{title}".parameterize
+    permalink
   end
 
   private

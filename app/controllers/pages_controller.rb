@@ -13,17 +13,6 @@ class PagesController < ApplicationController
       @pages = @pages.tagged_with(params[:tag])
     end
 
-    if params[:category]
-      case params[:category]
-        when "wiki" then @pages = @pages.wiki
-        when "posts" then @pages =  @pages.posts
-        when "info" then @pages = @pages.info
-        else @pages =@pages.posts
-      end
-    elsif not_admin?
-      @pages =@pages.posts
-    end
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @pages }
@@ -33,17 +22,7 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.json
   def show
-    if params[:category]
-      case params[:category]
-        when "wiki" then @page =Page.wiki.find(params[:id])
-        when "posts" then @page =Page.posts.find(params[:id])
-        when "info" then @page =Page.info.find(params[:id])
-        else @page =Page.posts.find(params[:id])
-      end
-    else
-      @page = Page.find(params[:id])
-    end
-
+    @page = Page.find_by_permalink!(params[:id])
     @comments = @page.comments.all
     @comment = @page.comments.build
 
@@ -54,7 +33,7 @@ class PagesController < ApplicationController
   end
 
   def add_comment
-    @page = Page.find(params[:id])
+    @page = Page.find_by_permalink!(params[:id])
     @comment = @page.comments.build
     respond_to do |format|
       format.js
@@ -74,7 +53,7 @@ class PagesController < ApplicationController
 
   # GET /pages/1/edit
   def edit
-    @page = Page.find(params[:id])
+    @page = Page.find_by_permalink!(params[:id])
   end
 
   # POST /pages
@@ -97,7 +76,7 @@ class PagesController < ApplicationController
   # PUT /pages/1
   # PUT /pages/1.json
   def update
-    @page = Page.find(params[:id])
+    @page = Page.find_by_permalink!(params[:id])
     @page.author=current_user.name
 
     respond_to do |format|
@@ -114,7 +93,7 @@ class PagesController < ApplicationController
   # DELETE /pages/1
   # DELETE /pages/1.json
   def destroy
-    @page = Page.find(params[:id])
+    @page = Page.find_by_permalink!(params[:id])
     @page.destroy
 
     respond_to do |format|

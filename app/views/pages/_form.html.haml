@@ -3,6 +3,8 @@
 
   .form-inputs
     = f.input :title
+    = f.label :parent_id
+    = f.collection_select :parent_id, Page.order(:title), :id, :title, include_blank: true
     = f.input :category, collection: ['posts', 'wiki']
     = f.input :tag_list
     = f.input :summary

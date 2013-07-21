@@ -36,4 +36,5 @@ gem 'pygments.rb'
 gem 'pg_search'
 gem 'kaminari'
 gem 'acts-as-taggable-on'
+gem 'ancestry'
 

@@ -31,6 +31,8 @@ GEM
     acts-as-taggable-on (2.4.1)
       rails (>= 3, < 5)
     addressable (2.3.3)
+    ancestry (2.0.0)
+      activerecord (>= 3.0.0)
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     better_errors (0.7.0)
@@ -234,6 +236,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
+  ancestry
   better_errors (>= 0.6.0)
   binding_of_caller (>= 0.7.1)
   bootstrap-sass (>= 2.3.0.0)
