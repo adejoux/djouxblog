@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  load_and_authorize_resource :page
   def index
     @pages = Page.posts.text_search(params[:query]).page(params[:page]).per(5).order("created_at DESC")
 
@@ -10,10 +9,11 @@ class PostsController < ApplicationController
     if params[:tag]
       @pages = @pages.tagged_with(params[:tag])
     end
+
   end
 
   def show
-    @page =Page.posts.find_by_permalink!(params[:id])
+    @page =Page.posts.find_by! permalink: params[:id]
 
     @comments = @page.comments.all
     @comment = @page.comments.build

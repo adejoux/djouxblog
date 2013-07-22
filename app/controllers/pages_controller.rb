@@ -27,7 +27,7 @@ class PagesController < ApplicationController
       redirect_to root_path
       return
     end
-    @page = Page.find_by_permalink!(params[:id])
+    @page = Page.find_by! permalink: params[:id]
     @comments = @page.comments.all
     @comment = @page.comments.build
 
@@ -38,7 +38,7 @@ class PagesController < ApplicationController
   end
 
   def add_comment
-    @page = Page.find_by_permalink!(params[:id])
+    @page = Page.find_by! permalink: params[:id]
     @comment = @page.comments.build
     respond_to do |format|
       format.js
@@ -58,13 +58,13 @@ class PagesController < ApplicationController
 
   # GET /pages/1/edit
   def edit
-    @page = Page.find_by_permalink!(params[:id])
+    @page = Page.find_by! permalink: params[:id]
   end
 
   # POST /pages
   # POST /pages.json
   def create
-    @page = Page.new(params[:page])
+    @page = Page.new(page_params)
     @page.user_id=current_user.id
     @page.permalink=@page.title.parameterize
 
@@ -82,12 +82,12 @@ class PagesController < ApplicationController
   # PUT /pages/1
   # PUT /pages/1.json
   def update
-    @page = Page.find_by_permalink!(params[:id])
+    @page = Page.find_by! permalink: params[:id]
     @page.user_id=current_user.id
     @page.permalink=@page.title.parameterize
 
     respond_to do |format|
-      if @page.update_attributes(params[:page])
+      if @page.update_attributes(page_params)
         format.html { redirect_to @page, notice: 'Page was successfully updated.' }
         format.json { head :no_content }
       else
@@ -100,7 +100,7 @@ class PagesController < ApplicationController
   # DELETE /pages/1
   # DELETE /pages/1.json
   def destroy
-    @page = Page.find_by_permalink!(params[:id])
+    @page = Page.find_by! permalink: params[:id]
     @page.destroy
 
     respond_to do |format|
@@ -109,5 +109,8 @@ class PagesController < ApplicationController
     end
   end
 
-
+  private
+  def page_params
+    params.require(:page).permit(:user_id, :content, :title, :summary, :tag_list, :published, :category, :parent_id)
+  end
 end

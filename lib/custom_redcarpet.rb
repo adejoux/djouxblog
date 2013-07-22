@@ -1,7 +1,8 @@
 class CustomRedcarpet < Redcarpet::Render::HTML
-  include Sprockets::Helpers::RailsHelper
-  include Sprockets::Helpers::IsolatedHelper
+  include Sprockets::Rails::Helper
+  include ActionView::Helpers::AssetTagHelper
   include ActionView::Helpers::UrlHelper
+
 
   def block_code(code, language)
     Pygments.highlight(code, lexer: language)

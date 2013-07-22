@@ -28,10 +28,6 @@ Djouxblog::Application.routes.draw do
 
   resources :comments
 
-  authenticated :user do
-    root :to => 'pages#index'
-  end
-
   root :to => "posts#index"
   devise_for :users
   resources :users

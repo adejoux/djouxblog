@@ -1,10 +1,11 @@
 source 'https://rubygems.org'
-gem 'rails', '3.2.12'
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'rails', '4.0.0'
+gem 'sass-rails', '~> 4.0.0'
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+# Use CoffeeScript for .js.coffee assets and views
+gem 'coffee-rails', '~> 4.0.0'
+
 gem 'jquery-rails'
 gem "thin", ">= 1.5.0", :group => [:development, :test]
 gem "unicorn", ">= 4.3.1", :group => :production
@@ -17,24 +18,27 @@ gem "database_cleaner", ">= 0.9.1", :group => :test
 gem "email_spec", ">= 1.4.0", :group => :test
 gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
 gem "bootstrap-sass", ">= 2.3.0.0"
-gem "devise", ">= 2.2.3"
-gem "cancan", ">= 1.6.8"
-gem "rolify", ">= 3.2.0"
-gem "simple_form", ">= 2.0.4"
+gem "devise"
+gem "cancan"
+gem "rolify"
+gem "simple_form", :git => 'git://github.com/plataformatec/simple_form.git'
 gem "quiet_assets", ">= 1.0.1", :group => :development
 gem "figaro", ">= 0.5.3"
 gem "better_errors", ">= 0.6.0", :group => :development
 gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri_19, :rbx]
 gem "libv8", ">= 3.11.8"
-gem "therubyracer", ">= 0.11.3", :group => :assets, :platform => :ruby, :require => "v8"
+gem "therubyracer", ">= 0.11.3", :platform => :ruby, :require => "v8"
 gem 'rmagick'
 gem 'carrierwave'
-gem "paper_trail"
+gem "paper_trail", github: 'airblade/paper_trail', branch: 'rails4'
 gem 'redcarpet'
 gem 'markitup-rails'
 gem 'pygments.rb'
 gem 'pg_search'
-gem 'kaminari'
+gem 'kaminari', github: 'amatsuda/kaminari'
 gem 'acts-as-taggable-on'
 gem 'ancestry'
+gem 'turbolinks'
+#gem 'activerecord-deprecated_finders'
+
 

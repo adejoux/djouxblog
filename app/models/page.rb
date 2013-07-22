@@ -1,5 +1,6 @@
 class Page < ActiveRecord::Base
-  attr_accessible :user_id, :content, :title, :summary, :tag_list, :published, :category, :parent_id
+  require 'custom_redcarpet'
+
   has_paper_trail :on => [:update, :destroy], :skip => [:published, :tag_list]
   before_save :render_body
   belongs_to :user
@@ -12,11 +13,11 @@ class Page < ActiveRecord::Base
 
   has_many :comments, :dependent => :destroy
 
-  scope :published, where(:published => true)
+  scope :published, -> {where(:published => true)}
 
-  scope :wiki, where(:category => "wiki")
-  scope :posts, where(:category => "posts")
-  scope :infos, where(:category => "infos")
+  scope :wiki, -> {where(:category => "wiki")}
+  scope :posts, -> {where(:category => "posts")}
+  scope :infos, -> {where(:category => "infos")}
 
   # adding postgresql full text search
   include PgSearch
