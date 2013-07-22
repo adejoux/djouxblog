@@ -1,3 +1,6 @@
+- if @pages.empty?
+  %h1 Nothing found
+
 - @pages.each do |page|
   %h1= link_to page.title, page
   = render :partial => 'pages/subtitle', :locals => { :page => page }
@@ -5,6 +8,7 @@
   %br
   %p= raw page.summary
   .author= link_to 'Read more...', post_path(page)
+
   %br
 = paginate @pages
 

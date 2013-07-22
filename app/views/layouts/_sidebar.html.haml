@@ -11,6 +11,6 @@
   - tag_cloud Page.tag_counts, %w{s m l} do |tag, css_class|
     = link_to tag.name, tag_path(tag.name), class: css_class
 
-- if is_admin_user? and params[:controller] == "pages" and params[:action] == "show"
+- if is_admin_user? and params[:action] == "show"
   %h1 History
   = render :partial => 'pages/history', :locals => { :page => @page }

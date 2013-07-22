@@ -6,10 +6,10 @@ class WikiController < ApplicationController
   end
 
   def show
-    @wiki =Page.wiki.published.find_by! permalink: params[:id]
+    @page =Page.wiki.published.find_by! permalink: params[:id]
 
-    @comments = @wiki.comments.all
-    @comment = @wiki.comments.build
+    @comments = @page.comments.all
+    @comment = @page.comments.build
 
     respond_to do |format|
       format.html # show.html.erb

@@ -1,13 +1,12 @@
 class InfosController < ApplicationController
-  load_and_authorize_resource :page, :find_by => :permalink
   # GET /infos/1
   # GET /infos/1.json
   def show
-    @info = Page.infos.published.find_by! permalink: params[:id]
+    @page = Page.infos.published.find_by! permalink: params[:id]
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @info }
+      format.json { render json: @page }
     end
   end
 

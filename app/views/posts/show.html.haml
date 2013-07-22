@@ -1,9 +1,11 @@
+- if is_admin_user?
+  = link_to 'Edit', edit_page_path, :class => "btn"
+  = link_to 'Back', posts_path, :class => "btn"
+
 = render :partial => 'pages/content', :locals => { :page => @page }
 
 = render :partial => 'pages/comments', :locals => { :comments => @comments }
 
 = render :partial => 'pages/add_comment', :locals => { :page => @page }
 
-- if is_admin_user?
-  = link_to 'Edit', edit_page_path
-  = link_to 'Back', posts_path
+

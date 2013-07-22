@@ -1,12 +1,23 @@
-- @pages.each do |page|
-  %h1= link_to page.title, page
-  = render :partial => 'subtitle', :locals => { :page => page }
-
-  %br
-  %p= raw page.summary
-  .author= link_to 'Read more...', page
-  %br
-= paginate @pages
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th category
+      %th title
+      %th permalink
+      %th published
+      %th updated
+      %th actions
+  %tbody
+    - @pages.each do |page|
+      %tr
+        %td=page.category
+        %td= link_to page.title, post_path(page)
+        %td=page.permalink
+        %td=page.published
+        %td=page.updated_at.to_formatted_s(:long)
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_page_path(page), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), page_path(page), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
 
 - if is_admin_user?
   = link_to 'New Page', new_page_path
