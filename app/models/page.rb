@@ -43,8 +43,8 @@ class Page < ActiveRecord::Base
       autolink: true,
       no_intra_emphasis: true,
       fenced_code_blocks: true,
-      lax_html_blocks: true,
       strikethrough: true,
+      disable_indented_code_blocks: true,
       superscript: true
     }
     redcarpet = Redcarpet::Markdown.new(renderer, options)

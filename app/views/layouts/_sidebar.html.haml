@@ -1,6 +1,3 @@
-- if params[:controller] == "wiki"
-  = render :partial => 'wiki_sidebar', :locals => { :wiki => @wiki }
-
 %h1 Recent posts
 %ul
   - @post_list.each do |post|

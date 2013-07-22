@@ -1,6 +1,8 @@
 Djouxblog::Application.routes.draw do
 
-  resources :infos
+
+
+  get "infos/:id", to: 'infos#show', as: 'info'
 
   get "posts/index"
   get "posts/:id", to: 'posts#show', as: 'post'

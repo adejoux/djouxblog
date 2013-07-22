@@ -2,4 +2,4 @@
 = render :partial => 'pages/subtitle', :locals => { :page => page }
 
 %div{ :id => "page_summary"}= raw page.summary
-%div{ :id => "page_content"}= raw page.rendered_body
+%div{ :id => "page_content"}= preserve page.rendered_body

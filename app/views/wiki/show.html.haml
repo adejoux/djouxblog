@@ -2,8 +2,9 @@
   - @wiki.ancestors.each do |wiki|
     = link_to wiki.title, wiki_path(wiki)
     &gt;
+  = @wiki.title
 
-= render :partial => 'pages/content', :locals => { :page => @wiki }
+= render :partial => 'content', :locals => { :page => @wiki }
 
 = render :partial => 'pages/comments', :locals => { :comments => @comments }
 
