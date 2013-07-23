@@ -11,3 +11,6 @@ ADMIN_NAME: First User
 ADMIN_EMAIL: user@example.com
 ADMIN_PASSWORD: changeme
 ROLES: [admin, user, VIP]
+#google analytics settings
+GA_ACCOUNT: 'changeme'
+GA_SITE: 'http://changeme'

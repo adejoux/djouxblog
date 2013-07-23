@@ -15,4 +15,5 @@
 //= require bootstrap
 //= require markitup
 //= require markitup/sets/markdown/set
+//= require turbolinks
 //= require_tree .
