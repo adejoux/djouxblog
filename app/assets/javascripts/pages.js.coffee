@@ -1,7 +1,8 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
-jQuery ->
+
+ready = ->
   # Target all text areas
   $("textarea#page_content").markItUp mySettings
   # Delete a comment
@@ -12,3 +13,5 @@ jQuery ->
       $(this).hide('fast')
     .on "ajax:error", ".comment", ->
       $(this).fadeTo('fast', 1)
+$(document).ready(ready)
+$(document).on('page:load', ready)

@@ -5,7 +5,7 @@ class CustomRedcarpet < Redcarpet::Render::HTML
 
 
   def block_code(code, language)
-    Pygments.highlight(code, lexer: language)
+    Pygments.highlight(code, lexer: language, options: {linespans: 'line'})
   end
 
   #code below from http://yet.another.linux-nerd.com/blog/how-to-extend-redcarpet-to-support-a-media-library-part-2
