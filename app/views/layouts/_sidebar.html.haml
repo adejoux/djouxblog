@@ -1,3 +1,13 @@
+- if params[:controller] == "posts"
+  %h1 Post search
+  = form_tag posts_path, :method => :get, :class => "navbar-form" do
+    = text_field_tag :query, params[:query], :placeholder => 'Enter search term...',:class => "search-query"
+
+- if params[:controller] == "wiki"
+  %h1 Wiki search
+  = form_tag wikis_path, :method => :get, :class => "navbar-form" do
+    = text_field_tag :query, params[:query], :placeholder => 'Enter search term...',:class => "search-query"
+
 %h1 Recent posts
 %ul
   - @post_list.each do |post|

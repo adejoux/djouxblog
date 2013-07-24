@@ -1,8 +1,13 @@
-#breadcrumbs
+.breadcrumb
   - @page.ancestors.each do |page|
     = link_to page.title, wiki_path(page)
     &gt;
   = @page.title
+
+- if is_admin_user?
+  = link_to 'Edit', edit_page_path, :class => "btn btn-mini"
+  = link_to 'Back', wikis_path, :class => "btn btn-mini"
+  = link_to 'New Page', new_page_path, :class => "btn btn-mini"
 
 = render :partial => 'content', :locals => { :page => @page }
 
@@ -10,7 +15,4 @@
 
 = render :partial => 'pages/add_comment', :locals => { :page => @page }
 
-- if is_admin_user?
-  = link_to 'Edit', edit_page_path
-  = link_to 'Back', wikis_path
-  = link_to 'New Page', new_page_path
+

@@ -1,0 +1,8 @@
+%h1 wiki pages results
+
+- @pages.each_with_index do |page, index|
+  .result
+    %span.badge.badge-success=index + 1
+    page :
+    = link_to page.title, wiki_path(page)
+  %br

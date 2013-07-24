@@ -7,10 +7,22 @@ div.highlight {
   background-color: transparent;
 }
 
+#page_summary {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#page_content h1 {
+  margin-bottom: 15px;
+}
+
 pre {
   background-color: black;
 }
 
+code, pre {
+  color: white;
+}
 #add_comment {
   margin-top:10px;
   margin-bottom:10px;
