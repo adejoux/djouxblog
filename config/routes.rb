@@ -31,4 +31,6 @@ Djouxblog::Application.routes.draw do
   root :to => "posts#index"
   devise_for :users
   resources :users
+
+  match ':status', to: 'errors#show', constraints: {status: /\d{3}/ }, via: :all
 end

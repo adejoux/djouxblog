@@ -18,7 +18,7 @@
     %li=link_to wiki.title, wiki_path(wiki)
 %h1 Tag Cloud
 #tag_cloud
-  - tag_cloud Page.tag_counts, %w{s m l} do |tag, css_class|
+  - tag_cloud Page.published.tag_counts, %w{s m l} do |tag, css_class|
     = link_to tag.name, tag_path(tag.name), class: css_class
 
 - if is_admin_user? and params[:action] == "show"

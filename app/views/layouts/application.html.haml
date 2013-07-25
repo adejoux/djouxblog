@@ -9,11 +9,11 @@
         = csrf_meta_tags
         = yield(:head)
   %body{:class => "#{controller_name} #{action_name}"}
-    .navbar.navbar-fixed-top.navbar-inverse
-      %nav.navbar-inner
-        .container
-          = render 'layouts/navigation'
-    #main{:role => "main"}
+    #wrap
+      .navbar.navbar-fixed-top.navbar-inverse
+        %nav.navbar-inner
+          .container
+            = render 'layouts/navigation'
       .container
         .row
           .span9
@@ -23,8 +23,7 @@
           .span3.bs-docs-sidebar
             .content.affix
               = render 'layouts/sidebar'
+      #push
     #footer
       .container
         &copy; 2013 - Alain Dejoux
-      / ! end of .container
-    / ! end of #main
