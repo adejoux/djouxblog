@@ -40,5 +40,6 @@ gem 'acts-as-taggable-on'
 gem 'ancestry'
 gem 'turbolinks'
 #gem 'activerecord-deprecated_finders'
+gem 'bootstrap-datetimepicker-rails'
 
 

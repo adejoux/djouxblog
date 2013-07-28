@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require bootstrap-datetimepicker
 //= require markitup
 //= require markitup/sets/markdown/set
 //= require turbolinks

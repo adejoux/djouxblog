@@ -13,5 +13,10 @@ ready = ->
       $(this).hide('fast')
     .on "ajax:error", ".comment", ->
       $(this).fadeTo('fast', 1)
+  $('.datetimepicker').datetimepicker({
+      language: 'en',
+      pick12HourFormat: true,
+      startDate: new Date()
+  });
 $(document).ready(ready)
 $(document).on('page:load', ready)

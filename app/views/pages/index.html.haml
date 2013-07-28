@@ -4,7 +4,7 @@
       %th category
       %th title
       %th permalink
-      %th published
+      %th publish_at
       %th updated
       %th actions
   %tbody
@@ -13,7 +13,7 @@
         %td=page.category
         %td= link_to page.title, post_path(page)
         %td=page.permalink
-        %td=page.published
+        %td=page.publish_at.to_formatted_s(:long)
         %td=page.updated_at.to_formatted_s(:long)
         %td
           = link_to t('.edit', :default => t("helpers.links.edit")), edit_page_path(page), :class => 'btn btn-mini'

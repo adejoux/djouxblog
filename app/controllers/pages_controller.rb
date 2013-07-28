@@ -8,7 +8,7 @@ class PagesController < ApplicationController
       return
     end
 
-    @pages = Page.text_search(params[:query]).order("created_at DESC")
+    @pages = Page.text_search(params[:query]).order("publish_at DESC")
 
     if params[:tag]
       @pages = @pages.tagged_with(params[:tag])
@@ -111,6 +111,6 @@ class PagesController < ApplicationController
 
   private
   def page_params
-    params.require(:page).permit(:user_id, :content, :title, :summary, :tag_list, :published, :category, :parent_id)
+    params.require(:page).permit(:user_id, :content, :title, :summary, :tag_list, :publish_at, :category, :parent_id)
   end
 end
