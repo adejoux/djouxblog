@@ -8,19 +8,19 @@
   = form_tag wikis_path, :method => :get, :class => "navbar-form" do
     = text_field_tag :query, params[:query], :placeholder => 'Enter search term...',:class => "search-query"
 
-%h1 Recent posts
+%h2 Recent posts
 %ul
   - @post_list.each do |post|
     %li=link_to post.title, post_path(post)
-%h1 Wiki updates
+%h2 Wiki updates
 %ul
   - @wiki_list.each do |wiki|
     %li=link_to wiki.title, wiki_path(wiki)
-%h1 Tag Cloud
+%h2 Tag Cloud
 #tag_cloud
   - tag_cloud Page.published.tag_counts, %w{s m l} do |tag, css_class|
     = link_to tag.name, tag_path(tag.name), class: css_class
 
-- if is_admin_user? and params[:action] == "show"
-  %h1 History
+- if is_admin_user? and params[:action] == "show" and @page
+  %h2 History
   = render :partial => 'pages/history', :locals => { :page => @page }

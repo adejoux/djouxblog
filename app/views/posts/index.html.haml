@@ -2,7 +2,7 @@
   %h1 Nothing found
 
 - @pages.each do |page|
-  %h1= link_to page.title, page
+  %h1= link_to page.title, post_path(page)
   = render :partial => 'pages/subtitle', :locals => { :page => page }
 
   %br
