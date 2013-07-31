@@ -83,8 +83,7 @@ class PagesController < ApplicationController
   # PUT /pages/1.json
   def update
     @page = Page.find_by! permalink: params[:id]
-    @page.user_id=current_user.id
-    @page.permalink=@page.title.parameterize
+    params[:page][:permalink]=params[:page][:title].parameterize
 
     respond_to do |format|
       if @page.update_attributes(page_params)
@@ -111,6 +110,6 @@ class PagesController < ApplicationController
 
   private
   def page_params
-    params.require(:page).permit(:user_id, :content, :title, :summary, :tag_list, :publish_at, :category, :parent_id)
+    params.require(:page).permit(:user_id, :content, :title, :summary, :tag_list, :publish_at, :category, :permalink, :parent_id)
   end
 end

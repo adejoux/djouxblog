@@ -2,3 +2,4 @@
   - @page.versions.each do |version|
     %li
       = link_to "#{version.created_at.to_formatted_s(:long)}", version_path(version)
+      = link_to "Delete", version_path(version), :method => 'delete', :class => "btn btn-mini btn-danger"

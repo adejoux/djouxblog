@@ -23,4 +23,16 @@ class VersionsController < ApplicationController
       format.html
     end
   end
+
+  # DELETE /pages/1
+  # DELETE /pages/1.json
+  def destroy
+    @version = Version.find(params[:id])
+    @version.destroy
+
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.json { head :no_content }
+    end
+  end
 end
