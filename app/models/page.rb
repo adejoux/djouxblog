@@ -1,7 +1,7 @@
 class Page < ActiveRecord::Base
   require 'custom_redcarpet'
 
-  has_paper_trail :on => [:update, :destroy], :skip => [:publish_at, :tag_list]
+  has_paper_trail :on => [:update, :destroy], :ignore => [:publish_at, :tag_list]
   before_save :render_body
   belongs_to :user
 

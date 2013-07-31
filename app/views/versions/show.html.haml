@@ -1,3 +1,5 @@
+.label.label-warning
+  = "version date : #{@version.created_at.to_formatted_s(:long)}"
 = render :partial => 'pages/content', :locals => { :page => @page }
 
 = link_to 'Revert', revert_version_path(@version), { :method => :page, :class => "btn" }
