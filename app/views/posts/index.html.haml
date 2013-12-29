@@ -6,8 +6,8 @@
   = render :partial => 'pages/subtitle', :locals => { :page => page }
 
   %br
-  %p= raw page.summary
-  .author= link_to 'Read more...', post_path(page)
+  .lead= raw page.summary
+  .more= link_to 'Read more...', post_path(page)
 
   %br
 = paginate @pages

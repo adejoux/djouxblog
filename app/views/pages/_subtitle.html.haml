@@ -5,4 +5,4 @@
   |
   = page.user.name || ""
   |
-  = raw page.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+  = raw page.tag_list.map { |t| link_to t, tag_path(t), { class: "label label-default"} }.join(' ')

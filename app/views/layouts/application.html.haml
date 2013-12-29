@@ -1,30 +1,31 @@
 !!!
 %html
   %head
+    %meta{:charset => "utf-8"}
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
       %title= content_for?(:title) ? yield(:title) : "Djouxblog"
       %meta{:content => content_for?(:description) ? yield(:description) : "Djouxblog", :name => "description"}
         = stylesheet_link_tag "application", :media => "all"
         = javascript_include_tag "application"
+        %link{:href => "http://fonts.googleapis.com/css?family=Enriqueta:400,700", :rel => "stylesheet", :type => "text/css"}
         = csrf_meta_tags
         = yield(:head)
-  %body{:class => "#{controller_name} #{action_name}"}
-    #wrap
-      .navbar.navbar-fixed-top.navbar-inverse
-        %nav.navbar-inner
+
+  %body
+    %header.navbar.navbar-fixed-top
+      %nav.container
+        = render 'layouts/navigation'
+    #main{:role => "main"}
+      .container
+        .col-md-9
+          .content
+            = render 'layouts/messages'
+            = yield
+        .col-md-2.bs-docs-sidebar
+          .content.affix
+            = render 'layouts/sidebar'
+      .footer
+        .navbar.navbar-fixed-bottom
           .container
-            = render 'layouts/navigation'
-      .container
-        .row
-          .span9
-            .content
-              = render 'layouts/messages'
-              = yield
-          .span3.bs-docs-sidebar
-            .content.affix
-              = render 'layouts/sidebar'
-      #push
-    #footer
-      .container
-        &copy; 2013 - Alain Dejoux
+            %b &copy; 2013 - Alain Dejoux
     = render 'layouts/footer_analytics'

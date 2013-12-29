@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
-gem 'rails', '4.0.0'
-gem 'sass-rails', '~> 4.0.0'
+gem 'rails', '4.0.2'
+gem 'sass-rails', '~> 4.0.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.0.1'
 
 gem 'jquery-rails'
 gem "thin", ">= 1.5.0", :group => [:development, :test]
@@ -17,7 +17,7 @@ gem "capybara", ">= 2.0.2", :group => :test
 gem "database_cleaner", ">= 0.9.1", :group => :test
 gem "email_spec", ">= 1.4.0", :group => :test
 gem "factory_girl_rails", ">= 4.2.0", :group => [:development, :test]
-gem "bootstrap-sass", ">= 2.3.0.0"
+gem "bootstrap-sass", "~> 3.0.3.0"
 gem "devise"
 gem "cancan"
 gem "rolify"
@@ -36,6 +36,7 @@ gem 'markitup-rails'
 gem 'pygments.rb'
 gem 'pg_search'
 gem 'kaminari', github: 'amatsuda/kaminari'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'acts-as-taggable-on'
 gem 'ancestry'
 gem 'turbolinks'
