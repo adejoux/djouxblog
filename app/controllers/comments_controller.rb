@@ -45,6 +45,7 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
+        UserMailer.posted_comment.deliver(@comment)
         format.html {
           case @comment.page.category
             when "wiki"
