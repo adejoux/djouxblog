@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.3'
 gem 'sass-rails', '~> 4.0.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -41,6 +41,7 @@ gem 'acts-as-taggable-on'
 gem 'ancestry'
 gem 'turbolinks'
 #gem 'activerecord-deprecated_finders'
-gem 'bootstrap-datetimepicker-rails'
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
 
 
