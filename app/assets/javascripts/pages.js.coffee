@@ -5,7 +5,7 @@
 ready = ->
   # Target all text areas
   if not document.body.contains('#epiceditor')
-    editor = new EpicEditor(container: "epiceditor", textarea: 'page_content').load()
+    editor = new EpicEditor({container: "epiceditor", textarea: 'page_content', clientSideStorage: false,                            }).load()
   # Delete a comment
   $(document)
     .on "ajax:beforeSend", ".comment", ->
@@ -14,10 +14,11 @@ ready = ->
       $(this).hide('fast')
     .on "ajax:error", ".comment", ->
       $(this).fadeTo('fast', 1)
-  $('.datetimepicker').datetimepicker({
-      language: 'en',
-      pick12HourFormat: true,
-      startDate: new Date()
+  $('#page_publish_at').AnyTime_picker({
+    format: "%Y-%m-%d %H:%i:%s %E %#",
+    formatUtcOffset: "%: (%@)",
+    hideInput: true,
+    placement: "inline"
   });
 $(document).ready(ready)
 $(document).on('page:load', ready)

@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require moment
-//= require bootstrap-datetimepicker
+//= require anytime
 //= require epiceditor
 //= require turbolinks
 //= require_tree .
