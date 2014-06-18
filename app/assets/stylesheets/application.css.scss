@@ -12,8 +12,10 @@
  *= require_tree .
  *= require bootstrap_and_overrides
  *= require bootstrap-datetimepicker
- *= require markitup/skins/markitup/style
- *= require markitup/sets/xbbcode/style
+
+ @import 'base/epiceditor';
+ @import 'preview/preview-dark';
+ @import 'editor/epic-dark';
 */
 
 

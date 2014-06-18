@@ -15,7 +15,6 @@
 //= require bootstrap
 //= require moment
 //= require bootstrap-datetimepicker
-//= require markitup
-//= require markitup/sets/markdown/set
+//= require epiceditor
 //= require turbolinks
 //= require_tree .
