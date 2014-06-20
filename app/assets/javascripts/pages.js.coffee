@@ -5,7 +5,7 @@
 ready = ->
   # Target all text areas
   if not document.body.contains('#epiceditor')
-    editor = new EpicEditor({container: "epiceditor", textarea: 'page_content', clientSideStorage: false,                            }).load()
+    editor = new EpicEditor({container: "epiceditor", textarea: 'page_content'}).load()
   # Delete a comment
   $(document)
     .on "ajax:beforeSend", ".comment", ->

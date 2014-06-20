@@ -22,7 +22,7 @@ gem "devise"
 gem "cancan"
 gem "rolify"
 gem "simple_form", :git => 'git://github.com/plataformatec/simple_form.git'
-#gem "quiet_assets", ">= 1.0.1", :group => :development
+gem "quiet_assets", ">= 1.0.1", :group => :development
 gem "figaro", ">= 0.5.3"
 gem "better_errors", ">= 0.6.0", :group => :development
 gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri_19, :rbx]

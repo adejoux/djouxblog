@@ -8,8 +8,8 @@
   <%= f.input :category, collection: ['posts', 'wiki', 'infos'] %>
   <%= f.input :tag_list %>
   <%= f.input :summary, input_html: { rows: 5 } %>
-  <div id="epiceditor">
+  <div id="epiceditor"></div>
   <%= f.input :content, :as => :hidden %>
-  </div>
+
   <%= f.button :submit %>
 <% end %>
