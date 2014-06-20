@@ -86,6 +86,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    commonjs (0.2.7)
     daemons (1.1.9)
     database_cleaner (1.0.1)
     debug_inspector (0.0.2)
@@ -134,6 +135,11 @@ GEM
     kgio (2.8.0)
     launchy (2.3.0)
       addressable (~> 2.3)
+    less (2.5.1)
+      commonjs (~> 0.2.7)
+    less-rails (2.5.0)
+      actionpack (>= 3.1)
+      less (~> 2.5.0)
     libv8 (3.11.8.17)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -159,8 +165,6 @@ GEM
     pygments.rb (0.5.2)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
-    quiet_assets (1.0.2)
-      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -264,6 +268,7 @@ DEPENDENCIES
   jquery-rails
   kaminari!
   kaminari-bootstrap (~> 3.0.1)
+  less-rails
   libv8 (>= 3.11.8)
   markitup-rails
   momentjs-rails
@@ -271,7 +276,6 @@ DEPENDENCIES
   pg (>= 0.14.1)
   pg_search
   pygments.rb
-  quiet_assets (>= 1.0.1)
   rails (= 4.0.4)
   redcarpet
   rmagick

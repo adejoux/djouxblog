@@ -1,18 +1,13 @@
-.navbar-header
-  %button.navbar-toggle{type: "button", 'data-toggle' => "collapse", 'data-target' => ".navbar-collapse"}
-    %span.icon-bar
-    %span.icon-bar
-    %span.icon-bar
-  = link_to "Djouxblog", root_path, :class => 'navbar-brand'
-.navbar-collapse.collapse
-  %ul.nav.navbar-nav
-    %li{:class => "#{'active' if params[:controller] == 'posts'}"}=link_to "Posts", posts_path
-    %li{:class => "#{'active' if params[:controller] == 'wiki'}"}=link_to "Wiki", wikis_path
+
+%nav{ role: "navigation", id: "site-nav", class: "nav" }
+  %ul
+    %li=link_to "POSTS", posts_path
+    %li{:class => "#{'active' if params[:controller] == 'wiki'}"}=link_to "WIKI", wikis_path
     - if info_path("about")
-      %li{:class => "#{'active' if current_page?(info_path("about"))}"}=link_to "About", info_path("about")
+      %li{:class => "#{'active' if current_page?(info_path("about"))}"}=link_to "ABOUT", info_path("about")
     - if user_signed_in?
-      %li{:class => "#{'active' if params[:controller] == 'pages'}"}=link_to 'Pages', pages_path
-      %li{:class => "#{'active' if params[:controller] == 'comments'}"}=link_to 'Comments', comments_path
+      %li{:class => "#{'active' if params[:controller] == 'pages'}"}=link_to 'PAGES', pages_path
+      %li{:class => "#{'active' if params[:controller] == 'comments'}"}=link_to 'COMMENTS', comments_path
       %li
         = link_to 'Logout', destroy_user_session_path, :method=>'delete'
       %li
