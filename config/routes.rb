@@ -19,7 +19,7 @@ Djouxblog::Application.routes.draw do
 
   get 'tags/:tag', to: 'posts#index', as: :tag
 
-  resources :images
+  #resources :images
 
   resources :pages do
     collection do

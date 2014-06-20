@@ -3,7 +3,6 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 ready = ->
-  # Target all text areas
   if not document.body.contains('#epiceditor')
     editor = new EpicEditor({container: "epiceditor", textarea: 'page_content'}).load()
   # Delete a comment

@@ -11,21 +11,20 @@
         = csrf_meta_tags
         = yield(:head)
 
-  %body
-    %header.navbar.navbar-fixed-top
-      %nav.container
+  %body.home
+    .navigation-wrapper
+      .site-name
+        = link_to "DJOUXBLOG", root_path
+      .top-navigation
         = render 'layouts/navigation'
-    #main{:role => "main"}
-      .container
-        .col-md-9
-          .content
-            = render 'layouts/messages'
-            = yield
-        .col-md-2.bs-docs-sidebar
-          .content.affix
-            = render 'layouts/sidebar'
-      .footer
-        .navbar.navbar-fixed-bottom
-          .container
-            %b &copy; 2013 - Alain Dejoux
+    .page
+      .article-author-side
+        = render 'layouts/sidebar'
+      #index
+        = render 'layouts/messages'
+        = yield
+
+      .footer-wrap
+        %footer
+          %b &copy; 2013 - Alain Dejoux
     = render 'layouts/footer_analytics'

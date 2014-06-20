@@ -1,5 +1,5 @@
-%h1{ :id => "page_title"}= page.title
+%h1.headline-wrap= page.title
 = render :partial => 'pages/subtitle', :locals => { :page => page }
-
-.lead{ :id => "page_summary"}= raw page.summary
-%div{ :id => "page_content"}= preserve page.rendered_body
+.article-wrap
+  = raw page.summary
+  = preserve page.rendered_body
