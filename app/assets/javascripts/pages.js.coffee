@@ -3,8 +3,8 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 ready = ->
-  if not document.body.contains('#epiceditor')
-    editor = new EpicEditor({container: "epiceditor", textarea: 'page_content'}).load()
+  if $('#epiceditor').length > 0
+    editor = new EpicEditor({container: "epiceditor", textarea: 'page_content', clientSideStorage: false }).load()
   # Delete a comment
   $(document)
     .on "ajax:beforeSend", ".comment", ->

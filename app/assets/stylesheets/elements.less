@@ -1,11 +1,11 @@
-hr { 
-	display: block; 
-	margin: 1em 0; 
+hr {
+	display: block;
+	margin: 1em 0;
 	padding: 0;
-	height: 1px; 
-	border: 0; 
+	height: 1px;
+	border: 0;
 	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #fff; 
+	border-bottom: 1px solid #fff;
 }
 /* Figures and images ==================================== */
 figure {
@@ -14,12 +14,12 @@ figure {
 article img {
 	max-width: 100%;
 	height: auto;
-	border-width: 0; 
-	vertical-align: middle; 
-	-ms-interpolation-mode: bicubic; 
+	border-width: 0;
+	vertical-align: middle;
+	-ms-interpolation-mode: bicubic;
 }
 svg:not(:root) {
-		overflow: hidden; 
+		overflow: hidden;
 }
 .half {
 	.container();
@@ -112,6 +112,19 @@ svg:not(:root) {
     background-color: @white;
     color: @info;
   }
+}
+.btn-sm, .btn-group-sm > .btn {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+.btn-xs,
+.btn-group-xs > .btn {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
 }
 /* Well ================================================= */
 .well {

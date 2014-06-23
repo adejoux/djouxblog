@@ -1,6 +1,6 @@
 .date
   - if is_admin_user?
-    = link_to 'Edit', edit_page_path(page), :class => "btn btn-mini"
+    = link_to 'Edit', edit_page_path(page), :class => "btn btn-xs"
   = page.publish_at.to_formatted_s(:long)
   |
   = page.user.name || ""
