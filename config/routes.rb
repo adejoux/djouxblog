@@ -19,7 +19,8 @@ Djouxblog::Application.routes.draw do
 
   get 'tags/:tag', to: 'posts#index', as: :tag
 
-  #resources :images
+  resources :images
+  match '/images/:name/:size', to: 'images#fast_url',   via: :get
 
   resources :pages do
     collection do

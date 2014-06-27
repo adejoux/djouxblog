@@ -22,6 +22,19 @@ class ImagesController < ApplicationController
     end
   end
 
+  def fast_url
+    @image = Image.where(name: params[:name]).first
+
+    case params[:size]
+    when "thumb"
+      redirect_to @image.file.thumb.url
+    when "small"
+      redirect_to @image.file.standard.url
+    when "full"
+      redirect_to @image.file_url
+    end
+  end
+
   # GET /images/new
   # GET /images/new.json
   def new
