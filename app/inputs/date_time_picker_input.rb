@@ -8,7 +8,7 @@ class DateTimePickerInput < SimpleForm::Inputs::Base
   end
 
   def input_html_options
-    {'data-format' => "dd/MM/yyyy HH:mm PP"}
+    {'data-format' => "yyyy-MM-dd HH:mm"}
   end
 
   def span_div

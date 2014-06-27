@@ -14,7 +14,7 @@ ready = ->
     .on "ajax:error", ".comment", ->
       $(this).fadeTo('fast', 1)
   $('#page_publish_at').AnyTime_picker({
-    format: "%Y-%m-%d %H:%i:%s %E %#",
+    format: "%Y-%m-%d %H:%i",
     formatUtcOffset: "%: (%@)",
     hideInput: true,
     placement: "inline"
