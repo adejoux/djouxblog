@@ -28,7 +28,7 @@ class Page < ActiveRecord::Base
     if query.present?
       search(query)
     else
-      scoped
+      where(nil)
     end
   end
 

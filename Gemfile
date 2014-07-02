@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'rails', '4.0.4'
+gem 'rails', '4.1.2'
 gem 'sass-rails', '~> 4.0.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -10,7 +10,7 @@ gem 'jquery-rails'
 gem "thin", ">= 1.5.0", :group => [:development, :test]
 gem "unicorn", ">= 4.3.1", :group => :production
 gem "pg", ">= 0.14.1"
-gem "haml-rails", ">= 0.4"
+gem "haml-rails"
 gem "html2haml", ">= 1.0.1", :group => :development
 gem "rspec-rails", ">= 2.12.2", :group => [:development, :test]
 gem "capybara", ">= 2.0.2", :group => :test
@@ -29,7 +29,7 @@ gem "libv8", ">= 3.11.8"
 gem "therubyracer", ">= 0.11.3", :platform => :ruby, :require => "v8"
 gem 'rmagick'
 gem 'carrierwave'
-gem "paper_trail", github: 'airblade/paper_trail', branch: 'rails4'
+gem "paper_trail"
 gem 'redcarpet'
 gem 'pygments.rb'
 gem 'pg_search'
