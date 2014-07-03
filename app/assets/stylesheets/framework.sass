@@ -1,0 +1,43 @@
+//= depends_on "variables"
+//= depends_on "site"
+//= depends_on "mixins"
+//= depends_on "grid"
+//= depends_on "typography"
+//= depends_on "elements"
+//= depends_on "forms"
+//= depends_on "page"
+
+// ===========================================================
+// Minimal Mistakes
+// By: Michael Rose
+// ===========================================================/
+
+// ROOT =======================================================
+/* CSS Normalize =========================================== */
+@import "normalize"
+/* Variables and mixins ==================================== */
+@import "variables"
+// MIXINS =====================================================
+@import "mixins"
+/* Site wide styles (html, body, global classes) =========== */
+@import "site"
+
+@import "grid"
+// TYPOGRAPHY =================================================
+@import "typography"
+// ELEMENTS ===================================================
+/* Figures, images, social media, other elements =========== */
+@import "elements"
+
+/* Standard form controls ================================== */
+@import "forms"
+// LAYOUT =====================================================
+/* Page level layout styles ================================ */
+@import "page"
+// PLUGINS  ===================================================
+/* jQuery Magnific-Popup =================================== */
+@import "magnific-popup"
+/* Print =================================================== */
+@media print
+  @import "print"
+
