@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def index
-    @pages = Page.posts.text_search(params[:query]).page(params[:page]).per(5).order("publish_at DESC")
+    @pages = Page.posts.text_search(params[:query]).kpage(params[:kpage]).per(5).order("publish_at DESC")
 
     if not_admin?
       @pages=@pages.published

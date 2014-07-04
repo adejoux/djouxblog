@@ -7,6 +7,7 @@
       %li{:class => "#{'active' if current_page?(info_path("about"))}"}=link_to "ABOUT", info_path("about")
     - if user_signed_in?
       %li{:class => "#{'active' if params[:controller] == 'pages'}"}=link_to 'PAGES', pages_path
+      %li{:class => "#{'active' if params[:controller] == 'pages'}"}=link_to 'IMAGES', images_path
       %li{:class => "#{'active' if params[:controller] == 'comments'}"}=link_to 'COMMENTS', comments_path
       %li
         = link_to 'Logout', destroy_user_session_path, :method=>'delete'

@@ -2,7 +2,7 @@ class WikiController < ApplicationController
   def index
 
     if params[:query]
-      @pages = Page.wiki.published.text_search(params[:query]).page(params[:page]).per(5).order("created_at DESC")
+      @pages = Page.wiki.published.text_search(params[:query]).kpage(params[:kpage]).per(5).order("created_at DESC")
       render 'search_results'
       return
     end

@@ -8,7 +8,7 @@ class PagesController < ApplicationController
       return
     end
 
-    @pages = Page.text_search(params[:query]).order("publish_at DESC")
+    @pages = Page.text_search(params[:query]).kpage(params[:kpage]).per(10).order("publish_at DESC")
 
     if params[:tag]
       @pages = @pages.tagged_with(params[:tag])

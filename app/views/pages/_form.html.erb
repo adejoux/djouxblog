@@ -3,7 +3,6 @@
 
   <%= f.input :title %>
   <%= f.input :publish_at, as: :date_time_picker, label: "Publication Date" %>
-  <%= f.input :parent_id %>
   <%= f.collection_select :parent_id, Page.order(:title), :id, :title, include_blank: true %>
   <%= f.input :category, collection: ['posts', 'wiki', 'infos'] %>
   <%= f.input :tag_list %>
