@@ -1,6 +1,7 @@
 - if @pages.empty?
   %h1 Nothing found
 
+- content_for :head, auto_discovery_link_tag(:atom, feed_url)
 - @pages.each do |page|
   %h1= link_to page.title, post_path(page)
   = render :partial => 'pages/subtitle', :locals => { :page => page }

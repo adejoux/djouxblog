@@ -1,4 +1,14 @@
 .panel.panel-default
+  - if ENV['TWITTER_LINK']
+    = link_to ENV['TWITTER_LINK'] do
+      = fa_icon("twitter")
+  
+  - if ENV['LINKEDIN_LINK']
+    = link_to ENV['LINKEDIN_LINK'] do
+      = fa_icon("linkedin")
+  = link_to feed_path, format: 'atom' do
+    = fa_icon("rss")
+
   - if params[:controller] == "posts"
     .panel-heading 
       %b Post search
@@ -29,7 +39,16 @@
     #tag_cloud
       - tag_cloud Page.published.tag_counts, %w{s m l} do |tag, css_class|
         = link_to tag.name, tag_path(tag.name), class: css_class
-
+  
+  - if ENV['DISCLAIMER']
+    .panel-heading
+      %b Disclaimer
+    .panel-body
+      = ENV['DISCLAIMER']
+  .panel-heading
+    %b License
+  .panel-body
+    = render partial: 'layouts/license'
   - if is_admin_user? and params[:action] == "show" and @page
     .panel-heading 
     %b History

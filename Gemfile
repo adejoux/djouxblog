@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'rails', '4.1.2'
+gem 'rails', '4.1.6'
 gem 'sass-rails', '~> 4.0.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -23,7 +23,7 @@ gem "simple_form", :git => 'git://github.com/plataformatec/simple_form.git'
 gem "quiet_assets", ">= 1.0.1", :group => :development
 gem "figaro", ">= 0.5.3"
 gem "better_errors", ">= 0.6.0", :group => :development
-gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri_19, :rbx]
+gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri_21, :rbx]
 gem "libv8", ">= 3.11.8"
 gem "therubyracer", ">= 0.11.3", :platform => :ruby, :require => "v8"
 gem 'rmagick'
@@ -38,5 +38,6 @@ gem 'ancestry'
 gem 'turbolinks'
 gem 'momentjs-rails'
 gem 'epic-editor-rails'
+gem 'font-awesome-rails'
 
 

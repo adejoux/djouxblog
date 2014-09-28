@@ -12,6 +12,10 @@ class PostsController < ApplicationController
 
   end
 
+  def  feed
+    @pages = Page.posts.published.order("publish_at DESC")
+  end
+
   def show
     @page =Page.posts.find_by! permalink: params[:id]
 

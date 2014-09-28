@@ -4,6 +4,8 @@ Djouxblog::Application.routes.draw do
 
   get "infos/:id", to: 'infos#show', as: 'info'
 
+  get "feeds", to: 'posts#feed', as: 'feed',format: 'atom'
+
   get "posts/index"
   get "posts/:id", to: 'posts#show', as: 'post'
   get "posts", to: 'posts#index', as: 'posts'
